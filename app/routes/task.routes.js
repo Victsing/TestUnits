@@ -1,9 +1,15 @@
 module.exports = app => {
   const task = require("../controllers/task.controller.js");
-
+  const TaskClass = require('../task')
   var router = require("express").Router();
 
-  router.post("/", task.create);
+  router.post("/", function(req, res){
+    console.log(req.body)
+    var t = new TaskClass(
+      title , description
+    )
+    t.addItem()
+  });
 
   router.get("/", task.findAll);
 
