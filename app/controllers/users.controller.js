@@ -1,6 +1,7 @@
 const db = require("../models");
 const User = db.users;
 const Op = db.Sequelize.Op;
+const Users = require('../users')
 
 exports.create = async (req, res) => {
   const {
@@ -11,6 +12,16 @@ exports.create = async (req, res) => {
     age,
   } = req.body
 
+  const o = new Users({
+    firstname,
+    lastname,
+    email,
+    password,
+    age,
+  })
+
+  console.log(o)
+
   try {
     const user = await User.create({
       firstname,
@@ -19,7 +30,7 @@ exports.create = async (req, res) => {
       password,
       age,
     })
-    res.json({ status: true, user })
+    res.json({ status: true, user , o})
   } catch (e) {
     res.json({ status: false, e })
   }
@@ -36,6 +47,7 @@ exports.findAll = async (req, res) => {
 
 exports.findOne = async (req, res) => {
   const { id } = req.body
+  console.log(id)
   try {
     const user = await User.findOne({
       where: {
