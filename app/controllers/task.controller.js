@@ -3,10 +3,10 @@ const Task = db.tasks;
 const Op = db.Sequelize.Op;
 
 exports.create = async (req, res) => {
-  const {data} = req.body
-  console.log(data)
+  const {title , description } = req.body
+  console.log(req.body)
   try {
-    const task = await Task.create({data})
+    const task = await Task.create({title , description })
     res.json({status: true, task})
   } catch (e) {
     res.json({status: false, e})
@@ -14,7 +14,6 @@ exports.create = async (req, res) => {
 };
 
 exports.findAll = async (req, res) => {
-  console.log(data)
 
   try {
     const task = await Task.findAll();
@@ -41,7 +40,7 @@ exports.findOne = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  const {data} = req.body
+  const {title , description } = req.body
   try {
     const task = await Task.update({data}, {
       where: {
