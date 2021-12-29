@@ -1,28 +1,49 @@
 module.exports = users => {
     class Users {
-        constructor(email, lastName, firstName, dateString) {
-            this.email = email
-            this.lastName = lastName
-            this.firstName = firstName
-            this.dateString = dateString
-            this.emailCheck = new EmailService()
+        constructor(email, lastName, firstName, password, age) {
+            this.email = this.checkMyEmail(email)
+            this.lastName = this.checkMyLastName(lastName)
+            this.firstName = this.checkMyFirstName(lastName)
+            this.password = this.checkMyPassword(password)
+            this.age = this.checkMyAge(age)
         }
 
 
-        checkMyEmail() {
-            this.emailCheck.checkEmailService()
+        checkMyEmail(email) {
+            var condition = ['@','.'];
+            if(this.email && this.email.includes(condition)){
+                return this.emailCheck = email
+            }else{
+                throw 'email doit etre rempli' 
+            }
+        }
+        
+        checkMyFirstName(firstname) {
+            if(firstname.length > 0){
+                return this.emailCheck = firstname
+            }else{
+                throw 'firstname doit etre rempli' 
+            }
         }
 
-        UserEmail() {
-            return this.email
+        checkMyLastName(lastname) {
+            if(lastname.length > 0){
+                return this.emailCheck = firstname
+            }else{
+                throw 'lastname doit etre rempli' 
+            }
         }
 
-        UserLastName() {
-            return this.lastName
+        checkMyPassword(password) {
+            if(password.length > 0 && password.length < 40){
+                return this.emailCheck = email
+            }else{
+                throw 'password doit etre rempli' 
+            }
         }
 
-        UserFirstName() {
-            return this.firstName
+        checkMyAge(age){
+            return this.age = age;
         }
 
         UserBornDate() {
