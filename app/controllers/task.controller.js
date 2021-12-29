@@ -24,7 +24,7 @@ exports.findAll = async (req, res) => {
 };
 
 exports.findOne = async (req, res) => {
-  const {id} = req.body
+  const {id} = req.params;
   try {
     const task = await Task.findOne({
       where: {
