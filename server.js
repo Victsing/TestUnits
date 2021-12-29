@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome todo Application." });
 });
 
-require("./app/routes/turorial.routes")(app);
+require("./app/routes/task.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.NODE_DOCKER_PORT || 8090;
