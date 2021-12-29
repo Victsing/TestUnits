@@ -54,7 +54,7 @@ exports.update = async (req, res) => {
 exports.delete = async (req, res) => {
   const {id} = req.body
   try {
-    const task = await Task.detele({
+    const task = await Task.delete({
       where: {
         id
       }
