@@ -1,8 +1,5 @@
 import user from "./app/users";
 
-test('Is user field : email is empty', () => {
-    expect().toMatch(/^\d*[a-zA-Z][a-zA-Z]*$/)
-});
 
 test('Is user field : email is a good format', () => {
     expect(user.email).toMatch(/^\S+@\S+\.\S+$/);
@@ -20,7 +17,7 @@ test('Is user field : Age is equal or superior to 13', () => {
     expect(user.dateString).toBeGreaterThanOrEqual(13);
 });
 
-
+test('')
 jest.mock('./emailCheck')
 
 test('Expect the checkEmail to fail', () => {
