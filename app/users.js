@@ -8,7 +8,6 @@ module.exports = users => {
             this.emailCheck = new EmailService()
         }
 
-
         checkMyEmail() {
             this.emailCheck.checkEmailService()
         }
@@ -31,3 +30,4 @@ module.exports = users => {
         }
     }
 };
+
