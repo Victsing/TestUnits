@@ -1,12 +1,12 @@
 const db = require("../models");
-const Task = db.tasks;
+const User = db.users;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
   const { data } = req.body
   try{
-    const task = await Task.create({data})
-    res.json({status: true , task })
+    const user = await User.create({data})
+    res.json({status: true , user })
   } catch (e){
     res.json({status: false , e })
   }
@@ -14,8 +14,8 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
   try{
-    const task = await Task.findAll();
-    res.json({status: true , task })
+    const user = await User.findAll();
+    res.json({status: true , user })
   } catch (e){
     res.json({status: false , e })
   }
@@ -24,12 +24,12 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const { id } = req.body
   try{
-    const task = await Task.findOne({
+    const user = await User.findOne({
       where : {
         id
       }
     })
-    res.json({status: true , task })
+    res.json({status: true , user })
   } catch (e){
     res.json({status: false , e })
   }
@@ -38,12 +38,12 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const { data } = req.body
   try{
-    const task = await Task.update({data}, {
+    const user = await User.update({data}, {
       where : {
         id
       }
     })
-    res.json({status: true , task })
+    res.json({status: true , user })
   } catch (e){
     res.json({status: false , e })
   }
@@ -52,12 +52,12 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const { id } = req.body
   try{
-    const task = await Task.detele({
+    const user = await User.detele({
       where : {
         id
       }
     })
-    res.json({status: true , task })
+    res.json({status: true , user })
   } catch (e){
     res.json({status: false , e })
   }
