@@ -1,5 +1,5 @@
 class Users {
-    constructor(email, lastName, firstName, password, age) {
+    constructor(firstName, lastName, email , password, age) {
         this.email = this.checkMyEmail(email)
         this.lastName = this.checkMyLastName(lastName)
         this.firstName = this.checkMyFirstName(lastName)
