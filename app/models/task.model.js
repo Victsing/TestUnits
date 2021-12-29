@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  return sequelize.define("task", {
+   const task = sequelize.define("task", {
     title: {
       type: Sequelize.STRING,
       allowNull: false
@@ -9,4 +9,13 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     },
   })
+
+  task.associate = function(models) {
+    task.hasOne(models.list, {
+      foreignKey: 'userId',
+      as: 'loginDetails'
+    });
+  }
+  
+  return task;
 }
