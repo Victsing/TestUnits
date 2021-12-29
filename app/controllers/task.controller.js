@@ -24,8 +24,6 @@ exports.findAll = async (req, res) => {
 };
 
 exports.findOne = async (req, res) => {
-  console.log(data)
-
   const {id} = req.body
   try {
     const task = await Task.findOne({
@@ -42,7 +40,7 @@ exports.findOne = async (req, res) => {
 exports.update = async (req, res) => {
   const {title , description } = req.body
   try {
-    const task = await Task.update({data}, {
+    const task = await Task.update({title , description}, {
       where: {
         id
       }
