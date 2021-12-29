@@ -8,22 +8,8 @@ module.exports = users => {
             this.age = this.checkMyAge(age)
         }
 
-
-        checkMyEmail(email) {
-            var condition = ['@','.'];
-            if(this.email && this.email.includes(condition)){
-                return this.emailCheck = email
-            }else{
-                throw 'email doit etre rempli' 
-            }
-        }
-        
-        checkMyFirstName(firstname) {
-            if(firstname.length > 0){
-                return this.emailCheck = firstname
-            }else{
-                throw 'firstname doit etre rempli' 
-            }
+        checkMyEmail() {
+            this.emailCheck.checkEmailService()
         }
 
         checkMyLastName(lastname) {
@@ -52,3 +38,4 @@ module.exports = users => {
         }
     }
 };
+
