@@ -1,4 +1,8 @@
 class Users {
+    email;
+    firstname;
+    lastname;
+
     constructor(firstName, lastName, email , password, age) {
         this.firstName = this.checkMyFirstName(firstName)
         this.lastName = this.checkMyLastName(lastName)
@@ -9,8 +13,7 @@ class Users {
 
 
     checkMyEmail(email) {
-        var condition = ['@','.'];
-        if(this.email && this.email.includes(condition)){
+        if(this.email && this.email.toMatch(/^\S+@\S+\.\S+$/)){
             return this.email = email
         }else{
             throw 'email doit etre rempli' 
@@ -21,7 +24,7 @@ class Users {
         if(firstname.length > 0){
             return this.firstName = firstname
         }else{
-            throw 'firstname doit etre rempli' 
+            return false
         }
     }
 
@@ -29,7 +32,7 @@ class Users {
         if(lastname.length > 0){
             return this.lastName = lastname
         }else{
-            throw 'lastname doit etre rempli' 
+            return false
         }
     }
 

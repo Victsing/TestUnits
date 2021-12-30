@@ -12,17 +12,14 @@ exports.create = async (req, res) => {
     age,
   } = req.body
 
-  const o = new Users({
-    firstname,
-    lastname,
-    email,
-    password,
-    age,
-  })
-
-  console.log(o)
-
   try {
+    const check = User.findAll({
+      limit: 1,
+      order: [
+        ['createdAt' , 'DESC']
+      ]
+    })
+
     const user = await User.create({
       firstname,
       lastname,
@@ -30,7 +27,7 @@ exports.create = async (req, res) => {
       password,
       age,
     })
-    res.json({ status: true, user , o})
+    res.json({ status: true, check})
   } catch (e) {
     res.json({ status: false, e })
   }
@@ -82,6 +79,16 @@ exports.delete = async (req, res) => {
         id
       }
     })
+    res.json({ status: true, user })
+  } catch (e) {
+    res.json({ status: false, e })
+  }
+};
+
+
+exports.deleteAll = async (req, res) => {
+  try {
+    const user = await User.destroy()
     res.json({ status: true, user })
   } catch (e) {
     res.json({ status: false, e })
