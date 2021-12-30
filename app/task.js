@@ -9,6 +9,7 @@ class Tasks {
     addItem(){
         return TaskController.create(this.title, this.description)
     }
+
 }
 
 module.exports = Tasks;

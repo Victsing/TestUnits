@@ -2,7 +2,7 @@ import user from "./app/users";
 
 
 test('Is user field : email is a good format', () => {
-    expect(user.email).toMatch(/^\S+@\S+\.\S+$/);
+    expect(user.checkMyEmail()).toMatch(/^\S+@\S+\.\S+$/);
 });
 
 test('Is user field : Last name is empty', () => {
