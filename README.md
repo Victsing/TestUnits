@@ -1,7 +1,7 @@
 ## voir branche master1
 ## Run the System
 ```bash
-docker-compose up
+docker-compose up.
 ```
 
 In deamon mode
