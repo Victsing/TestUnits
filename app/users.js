@@ -1,7 +1,11 @@
+import { DateTime } from 'luxon'
+
 class Users {
     email;
-    firstname;
-    lastname;
+    firstName;
+    lastName;
+    password;
+    age;
 
     constructor(firstName, lastName, email , password, age) {
         this.firstName = this.checkMyFirstName(firstName)
@@ -13,10 +17,8 @@ class Users {
 
 
     checkMyEmail(email) {
-        if(this.email && this.email.toMatch(/^\S+@\S+\.\S+$/)){
+        if(this.email && this.email.match(/^\S+@\S+\.\S+$/)){
             return this.email = email
-        }else{
-            throw 'email doit etre rempli' 
         }
     }
     
@@ -37,15 +39,15 @@ class Users {
     }
 
     checkMyPassword(password) {
-        if(password.length > 0 && password.length < 40){
+        if(password.length > 8 && password.length < 40){
             return this.password = password
         }else{
-            throw 'password doit etre rempli' 
+            throw 'erreur';
         }
     }
 
     checkMyAge(age){
-        return this.age = age;
+        return this.age = DateTime.fromJSDate(age).diffNow('years').years < -13;
     }
 
     UserBornDate() {
